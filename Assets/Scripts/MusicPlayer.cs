@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour {
 	static MusicPlayer instance = null;
-	// Use this for initialization
-	void Start () {
-	    if(instance != null) {
+
+	void Awake() {
+		if(instance != null) {
 			Destroy(gameObject);
 	    }
 	    else {
 	    	instance = this;
 			GameObject.DontDestroyOnLoad(gameObject);
 	    }
+	}
+	// Use this for initialization
+	void Start () {
+
 	}
 	
 	// Update is called once per frame
